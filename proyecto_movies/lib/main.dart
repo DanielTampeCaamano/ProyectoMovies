@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:proyecto_movies/src/pages/movies.dart';
 
 void main() {
-  runApp(BestRatedPage());
+  runApp(MoviesPage());
 }
 
 class MyApp extends StatelessWidget {

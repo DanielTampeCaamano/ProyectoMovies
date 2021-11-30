@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BestRatedPage extends StatefulWidget {
+class MoviesPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _BestRatedPageState();
+  State<StatefulWidget> createState() => _MoviesPageState();
 }
 
-class _BestRatedPageState extends State<BestRatedPage> {
+class _MoviesPageState extends State<MoviesPage> {
   var _dataLength = 20;
   @override
   Widget build(BuildContext context) {
@@ -25,9 +25,9 @@ class _BestRatedPageState extends State<BestRatedPage> {
           ),
           body: TabBarView(
             children: [
-              _contentGridView(),
-              _contentGridView(),
-              _contentGridView()
+              _contentGridView(0),
+              _contentGridView(0),
+              _contentGridView(0)
             ],
           ),
         ),
@@ -35,7 +35,23 @@ class _BestRatedPageState extends State<BestRatedPage> {
     );
   }
 
-  Widget _contentGridView() {
+  Widget _contentGridView(int data_type) {
+    switch (data_type) {
+      case 0:
+      //nuevas
+        break;
+      case 1:
+      //mejor puntuadas
+        break;
+      case 2:
+      //populares
+        break;
+      default:
+      //error
+        break;
+
+    }
+
     ScrollController _controller = ScrollController();
 
     _scrollListener() {
