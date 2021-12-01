@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_movies/src/pages/moviePage.dart';
+import 'package:proyecto_movies/src/routes/routes.dart';
 
-class MoviesPage extends StatefulWidget {
-  MoviesPage() {
-  }
-
+class BestRatedPage extends StatefulWidget {
+  static String tag='/';
   @override
-  State<StatefulWidget> createState() => _MoviesPageState();
+  State<StatefulWidget> createState() => _BestRatedPageState();
 }
 
-class _MoviesPageState extends State<MoviesPage> {
+class _BestRatedPageState extends State<BestRatedPage> {
   var _dataLength = 20;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
+        //routes: getRoutes(),
         length: 3,
         child: Scaffold(
           backgroundColor: Colors.white10,
@@ -28,9 +29,9 @@ class _MoviesPageState extends State<MoviesPage> {
           ),
           body: TabBarView(
             children: [
-              _contentGridView(0),
-              _contentGridView(0),
-              _contentGridView(0)
+              _contentGridView(),
+              _contentGridView(),
+              _contentGridView()
             ],
           ),
         ),
@@ -38,22 +39,7 @@ class _MoviesPageState extends State<MoviesPage> {
     );
   }
 
-  Widget _contentGridView(int data_type) {
-    switch (data_type) {
-      case 0:
-        //nuevas
-        break;
-      case 1:
-        //mejor puntuadas
-        break;
-      case 2:
-        //populares
-        break;
-      default:
-        //error
-        break;
-    }
-
+  Widget _contentGridView() {
     ScrollController _controller = ScrollController();
 
     _scrollListener() {
@@ -80,13 +66,15 @@ class _MoviesPageState extends State<MoviesPage> {
               style: TextButton.styleFrom(
                 textStyle: const TextStyle(fontSize: 20),
               ),
+              child: Text((index + 1).toString()),
+              //onPressed: () =>Navigator.pushNamed(context, MoviePage.tag),
               onPressed: () {
                 if (++_dataLength % 20 == 0) {
                   setState(() {});
                   print(_dataLength);
                 }
-              },
-              child: Text((index + 1).toString()),
+              }
+
             ),
           ),
         ),

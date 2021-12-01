@@ -1,9 +1,38 @@
 import 'package:flutter/material.dart';
 
 import 'package:proyecto_movies/src/pages/movies.dart';
-import 'package:proyecto_movies/src/pages/moviePage.dart';
-import 'package:proyecto_movies/src/models/movie.dart';
 
 void main() {
-  runApp(MoviePage(new Movie("Hombre araña", "Description", 70)));
+  runApp(BestRatedPage());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'FlutterApp',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: Scaffold(
+          appBar: AppBar(
+              title: Text('Mi App')
+          ),
+          drawer: DrawerPage(),
+          //body: ,
+        )
+    );
+  }
+}
+
+class DrawerPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Center(
+        child: Text('Mi Menu'),
+      ),
+    );
+  }
 }

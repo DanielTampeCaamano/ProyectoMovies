@@ -6,9 +6,10 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:proyecto_movies/main.dart';
+import 'package:proyecto_movies/src/pages/moviePage.dart';
 import 'package:proyecto_movies/src/pages/movies.dart';
 
 void main() {

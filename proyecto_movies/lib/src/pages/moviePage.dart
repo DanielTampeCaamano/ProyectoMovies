@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:proyecto_movies/src/models/movie.dart';
 
-class MoviePage extends StatelessWidget {
+class MoviesPage extends StatelessWidget {
+  static String tag = '/movie';
+
+
   Movie movie = new Movie("", "", 0);
 
   MoviePage(Movie movie) {
