@@ -89,7 +89,9 @@ class _BestRatedPageState extends State<BestRatedPage> {
                 style: TextButton.styleFrom(
                   textStyle: const TextStyle(fontSize: 20),
                 ),
-                child: Text((index + 1).toString()),
+                child: Text(this.movieData.elementAt(index).title +
+                    ': ' +
+                    (index + 1).toString()),
                 //onPressed: () =>Navigator.pushNamed(context, MoviePage.tag),
                 onPressed: () {
                   Navigator.push(
