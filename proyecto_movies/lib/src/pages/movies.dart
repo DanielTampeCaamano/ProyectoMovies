@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MoviesPage extends StatefulWidget {
+  MoviesPage() {
+  }
+
   @override
   State<StatefulWidget> createState() => _MoviesPageState();
 }
@@ -38,18 +41,17 @@ class _MoviesPageState extends State<MoviesPage> {
   Widget _contentGridView(int data_type) {
     switch (data_type) {
       case 0:
-      //nuevas
+        //nuevas
         break;
       case 1:
-      //mejor puntuadas
+        //mejor puntuadas
         break;
       case 2:
-      //populares
+        //populares
         break;
       default:
-      //error
+        //error
         break;
-
     }
 
     ScrollController _controller = ScrollController();
