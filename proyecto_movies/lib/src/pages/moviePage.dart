@@ -22,13 +22,14 @@ class MoviesPage extends StatelessWidget {
 
   Widget _appBar() {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(20),
       width: double.infinity,
       alignment: Alignment.center,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
+            alignment: Alignment.center,
             child: Column(
               children: <Widget>[
                 Text(
