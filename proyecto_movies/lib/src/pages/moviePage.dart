@@ -5,17 +5,16 @@ import 'package:proyecto_movies/src/models/movie.dart';
 class MoviesPage extends StatelessWidget {
   static String tag = '/movie';
 
+  Movie? movie;
 
-  Movie movie = new Movie("", "", 0);
-
-  MoviePage(Movie movie) {
+  MoviesPage(Movie movie) {
     this.movie = movie;
   }
 
-  Widget _backButton() {
+  Widget _backButton(BuildContext context) {
     return IconButton(
       onPressed: () {
-        print('going back');
+        Navigator.pop(context);
       },
       icon: const Icon(Icons.arrow_back),
     );
@@ -37,7 +36,14 @@ class MoviesPage extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.w100, fontSize: 14),
                 ),
                 Text(
-                  this.movie.title,
+                  this.movie!.title,
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF2F2F3E)),
+                ),
+                Text(
+                  this.movie!.rating.toString(),
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -60,7 +66,7 @@ class MoviesPage extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  _backButton(),
+                  _backButton(context),
                 ],
               ),
               Column(
