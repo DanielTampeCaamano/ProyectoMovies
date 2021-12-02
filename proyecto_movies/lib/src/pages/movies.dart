@@ -13,14 +13,17 @@ class _BestRatedPageState extends State<BestRatedPage> {
   int _page = 0;
 
   List<Movie> movieData = [
-    new Movie("Hombre araña", "Desc1", 70),
-    new Movie("Superman", "Desc2", 30),
-    new Movie("Escapist", "Desc3", 100),
-    new Movie("GenericMovie", "Desc4", 10),
-    new Movie("Hombre araña", "Desc1", 70),
-    new Movie("Superman", "Desc2", 30),
-    new Movie("Escapist", "Desc3", 100),
-    new Movie("GenericMovie", "Desc4", 10),
+    new Movie("Hombre araña", "Desc1", 70,
+        "https://hbomax-images.warnermediacdn.com/images/GYGVHLA01LJyaogEAAAAd/tileburnedin?size=1280x720&partner=hbomaxcom&language=es-419&v=94eb5e19c5eeb37eadbcfc2e7d7dcfef&host=art-gallery-latam.api.hbo.com&w=1280"),
+    new Movie("Superman", "Desc2", 30,
+        "https://m.media-amazon.com/images/I/51n2biZXGLL.jpg"),
+    new Movie("Escapist", "Desc3", 100,
+        "https://m.media-amazon.com/images/M/MV5BMzE2NmY2MzktOTY1NC00MTY4LThmMDAtNzE0MmRjN2U0MmI5XkEyXkFqcGdeQXVyOTY0NzE2NTU@._V1_.jpg"),
+    new Movie("GenericMovie", "Desc4", 10, ""),
+    new Movie("Hombre araña", "Desc1", 70, ""),
+    new Movie("Superman", "Desc2", 30, ""),
+    new Movie("Escapist", "Desc3", 100, ""),
+    new Movie("GenericMovie", "Desc4", 10, ""),
   ];
 
   @override
@@ -55,10 +58,13 @@ class _BestRatedPageState extends State<BestRatedPage> {
   _getMoreMovies(int page) {
     print("CurrentPage: " + (page - 1).toString());
     this.movieData.addAll([
-      new Movie("Hombre araña", "Desc1", page.toDouble()),
-      new Movie("Superman", "Desc2", page.toDouble()),
-      new Movie("Escapist", "Desc3", page.toDouble()),
-      new Movie("GenericMovie", "Desc4", page.toDouble()),
+      new Movie("Hombre araña", "Desc1", page.toDouble(),
+          "https://hbomax-images.warnermediacdn.com/images/GYGVHLA01LJyaogEAAAAd/tileburnedin?size=1280x720&partner=hbomaxcom&language=es-419&v=94eb5e19c5eeb37eadbcfc2e7d7dcfef&host=art-gallery-latam.api.hbo.com&w=1280"),
+      new Movie("Superman", "Desc2", page.toDouble(),
+          "m.media-amazon.com/images/I/51n2biZXGLL.jpg"),
+      new Movie("Escapist", "Desc3", page.toDouble(),
+          "https://m.media-amazon.com/images/M/MV5BMzE2NmY2MzktOTY1NC00MTY4LThmMDAtNzE0MmRjN2U0MmI5XkEyXkFqcGdeQXVyOTY0NzE2NTU@._V1_.jpg"),
+      new Movie("GenericMovie", "Desc4", page.toDouble(), ""),
     ]);
   }
 

@@ -24,6 +24,8 @@ class MoviesPage extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(20),
       width: double.infinity,
+      height: 687,
+      color: Colors.blue,
       alignment: Alignment.center,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -31,25 +33,44 @@ class MoviesPage extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  "Pelicula",
-                  style: TextStyle(fontWeight: FontWeight.w100, fontSize: 14),
-                ),
-                Text(
-                  this.movie!.title,
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF2F2F3E)),
-                ),
-                Text(
-                  this.movie!.rating.toString(),
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF2F2F3E)),
-                ),
+                Image.network(this.movie!.image, width: 350),
+                Container(
+                  color: Colors.lightBlue,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Pelicula",
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontStyle: FontStyle.italic,
+                            color: Color(0xFF2F2F3E)),
+                      ),
+                      Text(
+                        this.movie!.title,
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF2F2F3E)),
+                      ),
+                      Text(
+                        "Rating",
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontStyle: FontStyle.italic,
+                            color: Color(0xFF2F2F3E)),
+                      ),
+                      Text(
+                        this.movie!.rating.toString(),
+                        style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF2F2F3E)),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
