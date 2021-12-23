@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:proyecto_movies/src/models/movie.dart';
 import 'package:proyecto_movies/src/pages/moviePage.dart';
 import 'package:proyecto_movies/src/routes/routes.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
+import 'package:proyecto_movies/src/services/apiService.dart';
+
 
 class BestRatedPage extends StatefulWidget {
   @override
@@ -11,8 +15,14 @@ class BestRatedPage extends StatefulWidget {
 class _BestRatedPageState extends State<BestRatedPage> {
   var _dataLength = 20;
   int _page = 0;
+  // Apikey necesaria para realizar las consultas a TheMovieDB
+  String apiKey = "api_key=74ad4b182a06f0db76fbb0aa337f18e9&language=es";
 
-  List<Movie> movieData = [
+  // URL base de la API
+  String baseURL = 'https://api.themoviedb.org/3/movie/';
+
+  List<Movie> movieData =  /*[
+
     new Movie("Hombre araña", "Desc1", 70,
         "https://hbomax-images.warnermediacdn.com/images/GYGVHLA01LJyaogEAAAAd/tileburnedin?size=1280x720&partner=hbomaxcom&language=es-419&v=94eb5e19c5eeb37eadbcfc2e7d7dcfef&host=art-gallery-latam.api.hbo.com&w=1280"),
     new Movie("Superman", "Desc2", 30,
@@ -27,7 +37,9 @@ class _BestRatedPageState extends State<BestRatedPage> {
     new Movie("Escapist", "Desc3", 100,
         "https://m.media-amazon.com/images/M/MV5BMzE2NmY2MzktOTY1NC00MTY4LThmMDAtNzE0MmRjN2U0MmI5XkEyXkFqcGdeQXVyOTY0NzE2NTU@._V1_.jpg"),
     new Movie("GenericMovie", "Desc4", 10, "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg")
-  ];
+  ]*/;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,16 +70,20 @@ class _BestRatedPageState extends State<BestRatedPage> {
     );
   }
 
-  _getMoreMovies(int page) {
+  _getMovies() async{
+    var movies = await http.get(Uri.parse(baseURL + 'popular?' + apiKey + '&page=' + (_page.toString()))).then((value) => null);
+    Movie movie= movies.;
+  }
+  _getMoreMovies(int page) async{
     print("CurrentPage: " + (page - 1).toString());
     this.movieData.addAll([
-      new Movie("Hombre araña", "Desc1", page.toDouble(),
+      /*new Movie("Hombre araña", "Desc1", page.toDouble(),
           "https://hbomax-images.warnermediacdn.com/images/GYGVHLA01LJyaogEAAAAd/tileburnedin?size=1280x720&partner=hbomaxcom&language=es-419&v=94eb5e19c5eeb37eadbcfc2e7d7dcfef&host=art-gallery-latam.api.hbo.com&w=1280"),
       new Movie("Superman", "Desc2", page.toDouble(),
           "m.media-amazon.com/images/I/51n2biZXGLL.jpg"),
       new Movie("Escapist", "Desc3", page.toDouble(),
           "https://m.media-amazon.com/images/M/MV5BMzE2NmY2MzktOTY1NC00MTY4LThmMDAtNzE0MmRjN2U0MmI5XkEyXkFqcGdeQXVyOTY0NzE2NTU@._V1_.jpg"),
-      new Movie("GenericMovie", "Desc4", page.toDouble(), "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"),
+      new Movie("GenericMovie", "Desc4", page.toDouble(), "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg"),*/
     ]);
   }
 

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:proyecto_movies/src/models/movie.dart';
@@ -27,13 +28,13 @@ class MoviesPage extends StatelessWidget {
       height: 687,
       color: Colors.blue,
       alignment: Alignment.center,
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
+
             alignment: Alignment.center,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.network(this.movie!.image, width: 350),
                 Container(
